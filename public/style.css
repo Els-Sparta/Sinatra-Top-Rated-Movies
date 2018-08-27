@@ -1,5 +1,5 @@
 .size {
-  width: 10vw;
+  width: 8vw;
   height: 25vh;
   float:right;
   margin-top: 20px;
@@ -7,8 +7,15 @@
   transition: all 0.5s ease-in-out;
 }
 
+.show-size{
+  float:right;
+  width: 20vw;
+  height: 60vh;
+  margin: 10px;
+}
+
 .size:hover {
-  width: 11vw;
+  width: 9vw;
   height: 26vh;
 }
 
@@ -16,13 +23,21 @@
 .row {
   margin-top: 20px;
   border-radius: 5px;
-  box-shadow: 2px 3px black;
+  box-shadow: 1px 1px 1px 1px black;
+  padding: 3px 10px;
 }
 
+.row-background {
+  color: white;
+}
 
 .jumbotron {
   background-image: url(godzilla.jpg);
   background-size: cover;
   background-color: rgba(255,255,255, 0);
   color: khaki;
+}
+
+.post-button {
+  margin: 15px 0px;
 }

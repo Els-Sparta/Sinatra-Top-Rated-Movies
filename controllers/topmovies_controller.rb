@@ -30,7 +30,7 @@ end
     movies.release_year = params[:release_year]
     movies.rating = params[:rating]
     movies.images = params[:images]
-    moveis.background_img = params[:background_img]
+    movies.background_img = params[:background_img]
 
     movies.save
 

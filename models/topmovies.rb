@@ -11,7 +11,7 @@
   def save
     conn = TopMovies.open_connection
     if(!self.id)
-      sql = "INSERT INTO topmovies (title, release_year, rating, images) VALUES ('#{self.title}', '#{self.release_year}', '#{self.rating}', '#{self.images}', '#{self.background_img}')"
+      sql = "INSERT INTO topmovies (title, release_year, rating, images, background_img) VALUES ('#{self.title}', '#{self.release_year}', '#{self.rating}', '#{self.images}', '#{self.background_img}')"
 
       conn.exec(sql)
     else
