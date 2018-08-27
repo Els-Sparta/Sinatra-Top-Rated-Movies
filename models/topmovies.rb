@@ -11,11 +11,11 @@
   def save
     conn = TopMovies.open_connection
     if(!self.id)
-      sql = "INSERT INTO top_movies (title, release_year, rating) VALUES"
+      sql = "INSERT INTO topmovies (title, release_year, rating) VALUES ('#{self.title}', '#{self.release_year}', '#{self.rating}')"
 
       conn.exec(sql)
     else
-      sql = "UPDATE top_movies SET title='#{self.title}', release_year='#{self.release_year}', rating='#{self.rating}' WHERE id=#{self.id}"
+      sql = "UPDATE topmovies SET title='#{self.title}', release_year='#{self.release_year}', rating='#{self.rating}' WHERE id=#{self.id}"
 
       conn.exec(sql)
     end
@@ -26,7 +26,7 @@
 
     conn = self.open_connection
 
-    sql = "SELECT id, title, release_year, rating FROM topmovies ORDER BY id"
+    sql = "SELECT id, title, release_year, rating FROM topmovies ORDER BY rating DESC"
     results = conn.exec(sql)
     movies = results.map do |result|
       self.hydrate(result)
@@ -38,7 +38,7 @@
   def self.find(id)
     conn = self.open_connection
 
-    sql = "SELCT * FROM topmovies WHERE id=#{id} LIMIT 1"
+    sql = "SELECT * FROM topmovies WHERE id=#{id} LIMIT 1"
 
     movies_result = conn.exec(sql)
 

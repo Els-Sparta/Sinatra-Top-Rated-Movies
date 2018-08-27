@@ -19,18 +19,18 @@ end
 
   get "/new" do
     @title = "New Movie"
-    @movies = TopMovies.all
+    @movies = TopMovies.new
     erb :'posts/new'
   end
 
   post "/" do
-    movie = TopMovies.new
+    movies = TopMovies.new
 
-    movie.title = params[:title]
-    movie.release_year = params[:release_year]
-    movie.rating = params[:rating]
+    movies.title = params[:title]
+    movies.release_year = params[:release_year]
+    movies.rating = params[:rating]
 
-    movie.save
+    movies.save
 
     redirect "/"
   end
@@ -47,7 +47,7 @@ end
     id = params[:id].to_i
     @title = "Edit #{title}"
 
-    @movie = TopMovies.find(id)
+    @movies = TopMovies.find(id)
 
     erb :'posts/edit'
   end
