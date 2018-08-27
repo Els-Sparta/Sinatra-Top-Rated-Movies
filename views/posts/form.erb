@@ -1,0 +1,28 @@
+<div class="container">
+  <form action="/<%= @movies.id %>" method="post">
+    <div class="row">
+      <label><h4>Title</h4></label>
+      <input type="text" name="title" value="<%= @movies.title %>" placeholder="Enter a Movie Title">
+    </div>
+    <div class="row">
+      <label><h4>Release Year</h4></label>
+      <input type="number" name="release_year" value="<%= @movies.release_year %>" placeholder="Enter the year of Release">
+    </div>
+    <div class="row">
+      <label><h4>Rating</h4></label>
+      <input type="text" name="rating" value="<%= @movies.rating %>" placeholder="Enter a rating">
+    </div>
+    <div class="row">
+      <label><h4>Images</h4></label>
+      <input type="text" name="images" value="<%= @movies.images %>" placeholder="Enter an image url">
+    </div>
+    <div class="row">
+      <label><h4>Background Image</h4></label>
+      <input type="text" name="background_img" value="<%= @movies.background_img %>" placeholder="Enter an image url">
+    </div>
+      <input class="post-button" type="submit" value="post">
+    <% if(@movies.id) %>
+      <input type="hidden" name="_method" value="PUT">
+    <% end %>
+  </form>
+</div>

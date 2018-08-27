@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6">
+    <div class="row">
+      <h1><%= @movie.title %></h1>
+    </div>
+    <div class="row">
+      <h3>Release Year: <%= @movie.release_year %></h3>
+    </div>
+    <div class="row">
+      <h3>Rating: <%= @movie.rating %></h3>
+    </div>
+    <form action="<%= @movie.id %>" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <input class="post-button" type="submit" value="DELETE">
+    </form>
+    <a href="/<%= @movie.id %>/edit">Edit Movie</a>
+  </div>
+  <div class="col-md-6">
+    <img class="show-size" src="<%= @movie.images %>" alt="Movie Poster">
+  </div>
+</div>
