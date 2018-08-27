@@ -1,0 +1,9 @@
+
+<h1>Welcome to the Top Movies Homepage</h1>
+<% @movies.each do |movie| %>
+  <div>
+    <h3><a href="<%= movie.id %>"><%= movie.title %></a></h3>
+    <p>Release Year: <%= movie.release_year %></p>
+    <p>Rating: <%= movie.rating %></p>
+  </div>
+<% end %>
