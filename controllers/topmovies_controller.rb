@@ -29,6 +29,7 @@ end
     movies.title = params[:title]
     movies.release_year = params[:release_year]
     movies.rating = params[:rating]
+    movies.images = params[:images]
 
     movies.save
 
@@ -60,6 +61,7 @@ end
     movie.title = params[:title]
     movie.release_year = params[:release_year]
     movie.rating = params[:rating]
+    movie.images = params[:images]
 
     movie.save
 

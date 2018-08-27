@@ -1,20 +1,26 @@
-<form action="/<%= @movies.id %>" method="post">
-  <div>
-    <label>Title</label>
-    <input type="text" name="title" value="<%= @movies.title %>" placeholder="Enter a Movie Title">
-  </div>
-  <div>
-    <label>Release Year</label>
-    <input type="number" name="release_year" value="<%= @movies.release_year %>" placeholder="Enter the year of Release">
-  </div>
-  <div>
-    <label>Rating</label>
-    <input type="text" name="rating" value="<%= @movies.rating %>" placeholder="Enter a rating">
-  </div>
-  <div>
-    <input type="submit" value="post">
-  </div>
-  <% if(@movies.id) %>
-    <input type="hidden" name="_method" value="PUT">
-  <% end %>
-</form>
+<div class="container">
+  <form action="/<%= @movies.id %>" method="post">
+    <div class="jumbotron">
+      <label>Title</label>
+      <input type="text" name="title" value="<%= @movies.title %>" placeholder="Enter a Movie Title">
+    </div>
+    <div class="row">
+      <label><h4>Release Year</h4></label>
+      <input type="number" name="release_year" value="<%= @movies.release_year %>" placeholder="Enter the year of Release">
+    </div>
+    <div class="row">
+      <label>Rating</label>
+      <input type="number" name="rating" value="<%= @movies.rating %>" placeholder="Enter a rating">
+    </div>
+    <div class="row">
+      <label>Images</label>
+      <input type="text" name="images" value="<%= @movies.images %>" placeholder="Enter an image url">
+    </div>
+    <div class="row">
+      <input type="submit" value="post">
+    </div>
+    <% if(@movies.id) %>
+      <input type="hidden" name="_method" value="PUT">
+    <% end %>
+  </form>
+</div>

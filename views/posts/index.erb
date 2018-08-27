@@ -1,9 +1,19 @@
-
-<h1>Welcome to the Top Movies Homepage</h1>
-<% @movies.each do |movie| %>
-  <div>
-    <h3><a href="<%= movie.id %>"><%= movie.title %></a></h3>
-    <p>Release Year: <%= movie.release_year %></p>
-    <p>Rating: <%= movie.rating %></p>
+<div class="row">
+  <div class="jumbotron">
+    <h1>Welcome to my Top Movies Homepage</h1>
   </div>
+</div>
+<% @movies.each do |movie| %>
+<div class="row" class="">
+  <div class="col-md-6">
+    <h2><a href="<%= movie.id %>"><%= movie.title %></a></h2>
+    <h4>Release Year: <%= movie.release_year %></h4>
+    <h4>Rating: <%= movie.rating %></h4>
+    <h4>Synopsis:</h4>
+    <p></p>
+  </div>
+  <div class="col-md-6">
+    <img class="size" src="<%= movie.images %>" alt="Not Supported">
+  </div>
+</div>
 <% end %>
