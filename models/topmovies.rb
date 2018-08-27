@@ -1,6 +1,6 @@
   class TopMovies
   # Making it public
-  attr_accessor(:id, :title, :release_year, :rating, :images)
+  attr_accessor(:id, :title, :release_year, :rating, :images, :background_img)
   # Method to connect to the database
   def self.open_connection
     # Variable that runs the method 'connect' to get data from databse
@@ -11,11 +11,11 @@
   def save
     conn = TopMovies.open_connection
     if(!self.id)
-      sql = "INSERT INTO topmovies (title, release_year, rating, images) VALUES ('#{self.title}', '#{self.release_year}', '#{self.rating}', '#{self.images}')"
+      sql = "INSERT INTO topmovies (title, release_year, rating, images) VALUES ('#{self.title}', '#{self.release_year}', '#{self.rating}', '#{self.images}', '#{self.background_img}')"
 
       conn.exec(sql)
     else
-      sql = "UPDATE topmovies SET title='#{self.title}', release_year='#{self.release_year}', rating='#{self.rating}', images='#{self.images}' WHERE id=#{self.id}"
+      sql = "UPDATE topmovies SET title='#{self.title}', release_year='#{self.release_year}', rating='#{self.rating}', images='#{self.images}', background_img='#{self.background_img}' WHERE id=#{self.id}"
 
       conn.exec(sql)
     end
@@ -26,7 +26,7 @@
 
     conn = self.open_connection
 
-    sql = "SELECT id, title, release_year, rating, images FROM topmovies ORDER BY rating DESC"
+    sql = "SELECT id, title, release_year, rating, images, background_img FROM topmovies ORDER BY rating DESC"
     results = conn.exec(sql)
     movies = results.map do |result|
       self.hydrate(result)
@@ -61,6 +61,7 @@
     movie.release_year = movie_data['release_year']
     movie.rating = movie_data['rating']
     movie.images = movie_data['images']
+    movie.background_img = movie_data['background_img']
 
     movie
   end
